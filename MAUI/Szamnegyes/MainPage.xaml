@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Szamnegyes.MainPage"
+             xmlns:viewModel="clr-namespace:Szamnegyes">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="Számnégyes Játék"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <VerticalStackLayout Style="{StaticResource TableVertical}">
+                <HorizontalStackLayout Style="{StaticResource TableHorizontal}">
+                    <Label Text="{Binding FirstRowOne}" Style="{StaticResource TableLabel}"/>
+                    <Label Text="{Binding FirstRowTwo}" Style="{StaticResource TableLabel}"/>
+                    <Label Text="{Binding FirstRowThree}" Style="{StaticResource TableLabel}"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Style="{StaticResource TableHorizontal}">
+                    <Label Text="{Binding SecondRowOne}" Style="{StaticResource TableLabel}"/>
+                    <Label Text="{Binding SecondRowTwo}" Style="{StaticResource TableLabel}"/>
+                    <Label Text="{Binding SecondRowThree}" Style="{StaticResource TableLabel}"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Style="{StaticResource TableHorizontal}">
+                    <Label Text="{Binding ThirdRowOne}" Style="{StaticResource TableLabel}"/>
+                    <Label Text="{Binding ThirdRowTwo}" Style="{StaticResource TableLabel}"/>
+                    <Label Text="{Binding ThirdRowThree}" Style="{StaticResource TableLabel}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Style="{StaticResource ButtonVertical}">
+                <HorizontalStackLayout Style="{StaticResource ButtonHorizontal}">
+                    <Button Text="A" Command="{Binding IncreaseAFieldsCommand}"/>
+                    <Button Text="B" Command="{Binding IncreaseBFieldsCommand}"/>
+                    <Button Text="C" Command="{Binding IncreaseCFieldsCommand}"/>
+                    <Button Text="D" Command="{Binding IncreaseDFieldsCommand}"/>
+                </HorizontalStackLayout>
+
+                <Button Text="Nullázás" Command="{Binding RefreshTheTableCommand}"/>
+            </VerticalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

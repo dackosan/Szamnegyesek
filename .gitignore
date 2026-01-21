@@ -137,3 +137,6 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+MAUI/Szamnegyes/.vs
+MAUI/Szamnegyes/bin
+MAUI/Szamnegyes/obj
