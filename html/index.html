@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Fours</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Számnégyesek</h1>
+    </header>
+
+    <main class="layout">
+      <!-- BAL -->
+      <section class="panel leftPanel">
+        <h2>Új tábla felvitele</h2>
+
+        <div class="grid" aria-label="3x3 tábla">
+          <input id="cell-0-0" type="number" inputmode="numeric" />
+          <input id="cell-0-1" type="number" inputmode="numeric" />
+          <input id="cell-0-2" type="number" inputmode="numeric" />
+
+          <input id="cell-1-0" type="number" inputmode="numeric" />
+          <input id="cell-1-1" type="number" inputmode="numeric" />
+          <input id="cell-1-2" type="number" inputmode="numeric" />
+
+          <input id="cell-2-0" type="number" inputmode="numeric" />
+          <input id="cell-2-1" type="number" inputmode="numeric" />
+          <input id="cell-2-2" type="number" inputmode="numeric" />
+        </div>
+
+        <div class="actions">
+          <button id="saveBtn">Mentés</button>
+          <button id="clearBtn" type="button">Nullázás</button>
+        </div>
+
+        <p id="msg" class="msg" role="status"></p>
+      </section>
+
+      <!-- JOBB -->
+      <section class="panel">
+        <div class="panelHead">
+          <h2>Mentett számnégyesek</h2>
+          <button id="refreshBtn" class="ghost" type="button">Frissítés</button>
+        </div>
+
+        <div id="listWrap" class="listWrap">
+          <ul id="list" class="list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
