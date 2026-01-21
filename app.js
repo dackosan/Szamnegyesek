@@ -1,8 +1,15 @@
 import express from "express";
-import db from "./Database/database.js";
+import {
+  getAllFours,
+  getFoursById,
+  saveFours,
+  deleteFours,
+} from "./Database/database.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 function parseFour(body) {
   if (Array.isArray(body?.values)) {
@@ -25,16 +32,14 @@ function parseFour(body) {
 }
 
 app.get("/fours", (req, res) => {
-  const rows = db.getAllFours();
-
-  res.status(200).json(rows);
+  const rows = getAllFours();
+  return res.status(200).json(rows);
 });
 
 app.get("/fours/:id", (req, res) => {
-  const row = db.getFourById(+req.params.id);
+  const row = getFoursById(+req.params.id);
   if (!row) return res.status(404).json({ message: "Fours not found!" });
-
-  res.status(200).json(row);
+  return res.status(200).json(row);
 });
 
 app.post("/fours", (req, res) => {
@@ -45,20 +50,17 @@ app.post("/fours", (req, res) => {
     const newRow = saveFours(four.a, four.b, four.c, four.d);
     return res.status(201).json(newRow);
   } catch (e) {
-    if (String(e).includes("UNIQUE")) {
+    if (String(e).includes("UNIQUE"))
       return res.status(409).json({ message: "Already exists" });
-    }
-
     return res.status(500).json({ message: "Server error" });
   }
 });
 
 app.delete("/fours/:id", (req, res) => {
-  const row = db.getFourById(+req.params.id);
+  const row = getFoursById(+req.params.id);
   if (!row) return res.status(404).json({ message: "Fours not found!" });
 
-  db.deleteFours(row.id);
-
+  deleteFours(row.id);
   return res.status(200).json({ message: "Fours deleted!" });
 });
 
